@@ -1,6 +1,8 @@
 # React HorizontalCharts
 *React HorizontalCharts*: React components for [HorizontalCharts](https://www.horizontalcharts.org) library.
 
+For all details and documentation: [www.horizontalcharts.org](https://www.horizontalcharts.org)
+
 ![chart](https://user-images.githubusercontent.com/5993480/138280570-0c7d3c0f-7671-4ae1-b5d4-fa89e587165e.png)
 
 ---
@@ -16,6 +18,13 @@ Once it is installed, you can import and use it:
 ```js
 import HorizontalChart, { DataSample, TimeSeries } from 'react-horizontalcharts'
 ```
+
+### API
+
+**Props**
+- `options` - _Optional_ Chart options.
+- `data` - An array of `TimeSeries` objects.
+- `isRealTime` - _Optional_ Enables the real-time data visualization mode.
 
 ### Example
 ```js
