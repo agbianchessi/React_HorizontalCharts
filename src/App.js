@@ -1,10 +1,16 @@
 import './App.css';
+import React, { useEffect } from 'react'
 import HorizontalChart, { DataSample, TimeSeries } from './lib/'
 
 function App() {
 
+  // Colors
+  const colors = ["#FF6384", "#36A2EB", "#4BC0C0", "#FFFF66", "#FF99FF"];
+
   // Options
   const options = { xAxis: { xLabel: "Percentage of completion" } };
+
+  // Non real time
 
   // Create time series
   const ts1 = new TimeSeries(1, { labelText: "Day 1" });
@@ -30,14 +36,29 @@ function App() {
     new DataSample({ color: '#008800', value: 15, desc: "Ann" })
   ];
 
+  // Real time
+
+  // Create time series
+  let ts4 = new TimeSeries(1);
+  let ts5 = new TimeSeries(2);
+
+  // Update time series
+  useEffect(() => {
+    const id = setInterval(function () {
+      //TimeSeries 4
+      let color = colors[Math.floor(Math.random() * 5)];
+      ts4.append(new DataSample({ color: color, value: Math.random() * 3000 }));
+      //TimeSeries 5
+      color = colors[Math.floor(Math.random() * 5)];
+      ts5.append(new DataSample({ color: color, value: Math.random() * 5000 }));
+    }, 5000);
+    return () => clearInterval(id);
+  })
 
   return (
     <div className="App">
-      <header>
-      </header>
-      <body>
-        <HorizontalChart options={options} data={[ts1, ts2, ts3]} />
-      </body>
+      <HorizontalChart options={options} data={[ts1, ts2, ts3]} />
+      <HorizontalChart options={options} data={[ts4, ts5]} isRealTime={true} />
     </div>
   );
 }
