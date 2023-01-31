@@ -1,6 +1,6 @@
 {
   "name": "react-horizontalcharts",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "Andrea Giovanni Bianchessi <andrea.g.bianchessi@gmail.com> (https://www.horizontalcharts.org)",
   "description": "React Horizontal Charts: React components for HorizontalCharts library",
   "private": false,
@@ -36,8 +36,12 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
+    "clean": "rm -rf dist",
+    "transpile": "NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "copy": "cp LICENSE README.md dist/",
+    "pack": "webpack --mode production",
+    "build": "npm run clean && npm run transpile && npm run copy",
     "start": "react-scripts start",
-    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -62,6 +66,9 @@
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2"
+    "@babel/preset-env": "^7.20.2",
+    "terser-webpack-plugin": "^5.3.6",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }

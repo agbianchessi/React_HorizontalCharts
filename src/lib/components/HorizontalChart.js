@@ -1,14 +1,6 @@
-/** 
- * For all details and documentation: {@link https://www.horizontalcharts.org|www.horizontalcharts.org}
- * @copyright Andrea Giovanni Bianchessi 2023
- * @author Andrea Giovanni Bianchessi <andrea.g.bianchessi@gmail.com>
- * @license MIT
- * @version 0.1.2
- */
-
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { DataSample, TimeSeries, HorizontalChart as HorizontalChartCore } from './horizontalcharts.lib';
+import { DataSample, TimeSeries, HorizontalChartCore } from './HorizontalChartCore';
 
 const HorizontalChart = ({ options, data, isRealTime = false }) => {
 
