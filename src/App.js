@@ -1,8 +1,12 @@
 import './App.css';
-import React, { useEffect } from 'react'
+import React, { useEffect, createRef } from 'react'
 import HorizontalChart, { DataSample, TimeSeries } from './lib'
 
 function App() {
+
+  const canvasRef1 = createRef();
+  const canvasRef2 = createRef();
+  const canvasRef3 = createRef();
 
   // Colors
   const colors = ["#FF6384", "#36A2EB", "#4BC0C0", "#FFFF66", "#FF99FF"];
@@ -84,10 +88,10 @@ function App() {
 
   return (
     <div className="App">
-      <HorizontalChart options={options} data={[ts1, ts2, ts3]} />
-      <HorizontalChart options={options} data={[ts4, ts5]} isRealTime={true} />
-      <div style={{height:"80vh"}}>
-        <HorizontalChart options={optionsV} data={[ts6, ts7, ts8]} />
+      <HorizontalChart options={options} data={[ts1, ts2, ts3]} ref={canvasRef1} />
+      <HorizontalChart options={options} data={[ts4, ts5]} isRealTime={true} ref={canvasRef2} />
+      <div style={{ height: "80vh" }}>
+        <HorizontalChart options={optionsV} data={[ts6, ts7, ts8]} ref={canvasRef3} />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { DataSample, TimeSeries, HorizontalChartCore } from './HorizontalChartCore';
 
-const HorizontalChart = ({ options, data, isRealTime = false }) => {
+const HorizontalChart = forwardRef(({ options, data, isRealTime = false }, parentRef) => {
 
     const canvasRef = useRef(null);
 
@@ -15,7 +15,11 @@ const HorizontalChart = ({ options, data, isRealTime = false }) => {
         chart.streamTo(canvas);
     });
 
-    return <canvas ref={canvasRef} style={
+    return <canvas ref={(ref) => {
+        if (parentRef != null)
+            parentRef.current = ref;
+        canvasRef.current = ref;
+    }} style={
         (options.horizontal == null || options.horizontal === true) ?
             { width: "100%" }
             :
@@ -23,7 +27,7 @@ const HorizontalChart = ({ options, data, isRealTime = false }) => {
     }
     />
 
-}
+});
 
 HorizontalChart.propTypes = {
     options: PropTypes.object,
