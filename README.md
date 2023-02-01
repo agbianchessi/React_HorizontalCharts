@@ -26,9 +26,16 @@ import HorizontalChart, { DataSample, TimeSeries } from 'react-horizontalcharts'
 - `data` - An array of `TimeSeries` objects.
 - `isRealTime` - _Optional_ Enables the real-time data visualization mode.
 
+**Ref**
+- `ref` - _Optional_ A *ref* to the *canvas* DOM node.
+
 ### Example
 ```js
 function App() {
+  
+  // Refs
+  const canvasRef1 = createRef();
+  const canvasRef2 = createRef();
 
   // Colors
   const colors = ["#FF6384", "#36A2EB", "#4BC0C0", "#FFFF66", "#FF99FF"];
@@ -83,8 +90,8 @@ function App() {
 
   return (
     <div className="App">
-      <HorizontalChart options={options} data={[ts1, ts2, ts3]} />
-      <HorizontalChart options={options} data={[ts4, ts5]} isRealTime={true} />
+      <HorizontalChart options={options} data={[ts1, ts2, ts3]} ref={canvasRef1} />
+      <HorizontalChart options={options} data={[ts4, ts5]} isRealTime={true} ref={canvasRef2} />
     </div>
   );
 }
