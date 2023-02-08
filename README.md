@@ -29,7 +29,7 @@ import HorizontalChart, { DataSample, TimeSeries } from 'react-horizontalcharts'
 **Ref**
 - `ref` - _Optional_ A *ref* to exposed chart methods:
   -  `zoom(cmd)` - `cmd`='+' --> zoom-in, `cmd`='-' --> zoom-out.
-  -  `getContext()` - Returns the canvas drawing context, or `null`
+  -  `getContext()` - Returns the canvas drawing context, or `null`.
 
 ### Example
 ```js
