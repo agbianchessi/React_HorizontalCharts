@@ -27,7 +27,9 @@ import HorizontalChart, { DataSample, TimeSeries } from 'react-horizontalcharts'
 - `isRealTime` - _Optional_ Enables the real-time data visualization mode.
 
 **Ref**
-- `ref` - _Optional_ A *ref* to the *canvas* DOM node.
+- `ref` - _Optional_ A *ref* to exposed chart methods:
+  -  `zoom(cmd)` - `cmd`='+' --> zoom-in, `cmd`='-' --> zoom-out.
+  -  `getContext()` - Returns the canvas drawing context, or `null`
 
 ### Example
 ```js
