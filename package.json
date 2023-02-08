@@ -1,6 +1,6 @@
 {
   "name": "react-horizontalcharts",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Andrea Giovanni Bianchessi <andrea.g.bianchessi@gmail.com> (https://www.horizontalcharts.org)",
   "description": "React Horizontal Charts: React components for HorizontalCharts library",
   "private": false,

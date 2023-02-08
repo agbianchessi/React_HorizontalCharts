@@ -8,12 +8,19 @@ function App() {
   const canvasRef2 = createRef();
   const canvasRef3 = createRef();
 
+  //
+  const magnify = (event, cmd) => {
+    console.log(cmd)
+    canvasRef2.current.zoom(cmd)
+  }
+
   // Colors
   const colors = ["#FF6384", "#36A2EB", "#4BC0C0", "#FFFF66", "#FF99FF"];
 
   // Options
-  const options = { xAxis: { xLabel: "Percentage of completion" } };
-  const optionsV = { horizontal: false, xAxis: { xLabel: "Percentage of completion" } };
+  const options1 = { xAxis: { xLabel: "Percentage of completion" } };
+  const options2 = { xAxis: { xLabel: "Random data" } };
+  const options3 = { horizontal: false, xAxis: { xLabel: "Percentage of completion" } };
 
   // Non real time
 
@@ -88,10 +95,14 @@ function App() {
 
   return (
     <div className="App">
-      <HorizontalChart options={options} data={[ts1, ts2, ts3]} ref={canvasRef1} />
-      <HorizontalChart options={options} data={[ts4, ts5]} isRealTime={true} ref={canvasRef2} />
-      <div style={{ height: "80vh" }}>
-        <HorizontalChart options={optionsV} data={[ts6, ts7, ts8]} ref={canvasRef3} />
+      <HorizontalChart options={options1} data={[ts1, ts2, ts3]} ref={canvasRef1} />
+      <HorizontalChart options={options2} data={[ts4, ts5]} isRealTime={true} ref={canvasRef2} />
+      <div>
+        <button className="m-1" onClick={(event) => magnify(event, '+')}>&#x1F50D;+</button>
+        <button className="m-1" onClick={(event) => magnify(event, '-')}>&#x1F50D;-</button>
+      </div>
+      <div style={{ height: "80vh", padding: "1em" }}>
+        <HorizontalChart options={options3} data={[ts6, ts7, ts8]} ref={canvasRef3} />
       </div>
     </div>
   );
